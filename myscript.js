@@ -1,6 +1,6 @@
 function getColor(key, callback) {
 	if (key !== null) {
-		chrome.storage.local.get(key ,function (obj){
+		chrome.storage.local.get(key, function (obj){
 			// $('.pln').css('background-color', block)
 			callback(obj)
 		});

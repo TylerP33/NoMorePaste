@@ -1,7 +1,14 @@
-window.onload=function(){grabData(), changeHandler()}
+window.onload=function(){grabData(), getChange()}
 
-function grabData() {
-	let spans = document.getElementsByTagName('span')
+const getChange = () => {
+	 $('input[type=checkbox]').change(function() {
+     	 console.log($(this).attr('id'))
+   });
+}
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+const grabData = () => {
+	let spans = $('span')
 	for (let i = 0; i < spans.length; i++){
 		spans[i].addEventListener("click", function(e) {
 			let color = e.target.style.backgroundColor
@@ -17,7 +24,4 @@ function grabData() {
 }
 
 
-function changeHandler(){
-     var checkedList = document.querySelectorAll("input[name^='item[']:checked")
-     console.log(checkedList)
-}
+
