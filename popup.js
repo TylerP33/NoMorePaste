@@ -1,9 +1,16 @@
-let color = document.getElementById('test')
-console.log(color)
-chrome.storage.local.set({
-    color: color
-}, function () {
-    chrome.tabs.executeScript({
-        file: "myscript.js"
-    });
-});
+window.onload=function(){grabData()}
+
+function grabData() {
+	let color = document.getElementById('test')
+	chrome.storage.local.set({
+    		'color': color.style.backgroundColor
+		}, function () {
+    		chrome.tabs.executeScript({
+        	file: "myscript.js"
+    	});
+	});
+
+}
+
+
+
