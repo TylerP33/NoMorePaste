@@ -1,23 +1,17 @@
 {
-    "name": "Copy with a Click!",
-    "version": "1.0",
-    "description": "Build an Extension!",
-    "author": "Tyler Pulse",
-    "manifest_version": 2,
-    "background": {
-        "scripts": [
-        	"js/background.js"
-        ],
-        "persistent": false
-    },
-      "browser_action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "images/img16.png"
-        }
-    },
-    "icons": {
-        "16": "images/img16.png"
-    }
+  "name": "test",
+  "version": "0.1",
+  "manifest_version": 2,
 
+  "description": "Test Extension",
+
+  "permissions": [ "activeTab", "storage" ],
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts" : [{
+        "matches" :  ["*://*/*"],
+        "js" : ["jquery.js", "myscript.js"]
+    }]
 }
