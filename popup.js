@@ -1,27 +1,32 @@
-window.onload=function(){grabData(), getChange()}
+window.onload=function(){getChange(), getColor()}
 
 const getChange = () => {
+	let array = []
+	let color;
 	 $('input[type=checkbox]').change(function() {
-     	 console.log($(this).attr('id'))
-   });
+	 	array.push($(this).attr('id'))
+	 	console.log(array)
+     	 	chrome.storage.local.set({
+    				'checked': array,
+		});
+   	});
 }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-const grabData = () => {
+
+const getColor = () => {
 	let spans = $('span')
 	for (let i = 0; i < spans.length; i++){
 		spans[i].addEventListener("click", function(e) {
-			let color = e.target.style.backgroundColor
-				chrome.storage.local.set({
+			color = e.target.style.backgroundColor
+			chrome.storage.local.set({
     				'color': color
-				}, function () {
+			}, function () {
     				chrome.tabs.executeScript({
         			file: "myscript.js"
-    			});
-			});
+    		});
+		});
 		});
 	}
 }
-
 
 

@@ -1,6 +1,6 @@
 function getColor(key, callback) {
 	if (key !== null) {
-		chrome.storage.local.get(key, function (obj){
+		chrome.storage.local.get(key,function (obj){
 			// $('.pln').css('background-color', block)
 			callback(obj)
 		});
@@ -9,7 +9,11 @@ function getColor(key, callback) {
 
 
 getColor('color', function(color){
-	$('.kwd').css('background-color', color.color)
+	console.log(color)
+})
+
+getColor('checked', function(checked, color){
+	console.log(checked)
 })
 
 
