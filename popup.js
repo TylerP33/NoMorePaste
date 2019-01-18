@@ -4,10 +4,17 @@ const getChange = () => {
 	let array = []
 	let color;
 	 $('input[type=checkbox]').change(function() {
-	 	array.push($(this).attr('id'))
+	 	if (this.checked) {
+	 		array.push($(this).attr('id'))
+	 	} else if(array.includes($(this).attr('id'))){
+	 		let index = array.indexOf($(this).attr('id'))
+	 		array.splice(index)
+	 	} else{
+	 		return false
+	 	}
 	 	console.log(array)
      	 	chrome.storage.local.set({
-    				'checked': array,
+    			'checked': array,
 		});
    	});
 }
@@ -23,8 +30,8 @@ const getColor = () => {
 			}, function () {
     				chrome.tabs.executeScript({
         			file: "myscript.js"
-    		});
-		});
+    			});
+			});
 		});
 	}
 }
