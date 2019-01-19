@@ -17,12 +17,12 @@ getColor('checked', globalChecked, function(checked){
 	globalChecked = checked
 })
 
-if (globalChecked['checked'] !== undefined || globalChecked['checked'].length >= 1){
-	$(`${globalChecked['checked'][globalChecked['checked'].length - 1]}`).css('background-color', globalColor)
-} else{
-	console.log('this is undefined')
-}
+console.log(globalChecked)
+console.log(globalColor)
 
+if (globalChecked['checked'] !== undefined && globalChecked['checked'].length === 1 && globalChecked['checked'] !== "default"){
+	$(`${globalChecked['checked'][globalChecked['checked'].length - 1]}`).css('background-color', globalColor)
+}
 
 
 

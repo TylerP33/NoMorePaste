@@ -1,7 +1,8 @@
 window.onload=function(){getChange(), getColor()}
+let array = []
 
-const getChange = () => {
-	let array = []
+
+const getChange = (callback) => {
 	let color;
 	 $('input[type=checkbox]').change(function() {
 	 	if (this.checked) {
@@ -9,10 +10,10 @@ const getChange = () => {
 	 	} else if(array.includes($(this).attr('id'))){
 	 		let index = array.indexOf($(this).attr('id'))
 	 		array.splice(index)
+	 		console.log(array)
 	 	} else{
 	 		return false
 	 	}
-	 	console.log(array)
      	 	chrome.storage.local.set({
     			'checked': array,
 		});
@@ -20,11 +21,15 @@ const getChange = () => {
 }
 
 
+
+var color = 'color'
 const getColor = () => {
 	let spans = $('span')
 	for (let i = 0; i < spans.length; i++){
 		spans[i].addEventListener("click", function(e) {
 			color = e.target.style.backgroundColor
+			e.target.style.backgroundColor
+		if (array.length)
 			chrome.storage.local.set({
     				'color': color
 			}, function () {
