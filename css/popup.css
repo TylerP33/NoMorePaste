@@ -1,6 +1,7 @@
 html{
 	display: flex;
 	width: 100%;
+	background-color: silver;
 }
 
 #check_box{
@@ -9,6 +10,32 @@ html{
 	height: 100%;
 	justify-content: left;
 	flex-wrap: wrap;
+}
+
+.default{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+}
+
+span{
+	cursor: pointer;
+}
+
+.default_span{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	background-color: white;
+}
+
+.default_span:hover{
+	margin:-2px;
+	border: solid black 2px;
 }
 
 .text_wrap{
@@ -20,12 +47,10 @@ html{
 	text-align: left;
 }
 
-span{
+
+
+.grid-container span:hover{
 	margin:-2px;
-}
-
-
-span:hover{
 	border: solid 2px white;
 }
 
